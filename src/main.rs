@@ -2,7 +2,7 @@ use std::fs;
 
 fn main() {
     let input = fs::read_to_string("./src/input.txt").unwrap();
-    let input = input.split("\r\n").collect::<Vec<&str>>();
+    let input = input.split('\n').collect::<Vec<&str>>();
     let mut main_arr: Vec<Vec<&str>> = Vec::new();
     let mut sub_arr: Vec<&str> = Vec::new();
 
@@ -26,11 +26,19 @@ fn main() {
         temp_val = 0;
     }
 
-    let mut highest = 0;
-    for v in sum_arr {
-        if v > highest {
-            highest = v;
-        }
-    }
-    println!("{}", highest);
+    // let mut highest = 0;
+    // for v in sum_arr {
+    //     if v > highest {
+    //         highest = v;
+    //     }
+    // }
+
+    sum_arr.sort();
+
+    let mut total: i32 = 0;
+    total += sum_arr[sum_arr.len() - 1];
+    total += sum_arr[sum_arr.len() - 2];
+    total += sum_arr[sum_arr.len() - 3];
+
+    println!("{:#?}", total);
 }
