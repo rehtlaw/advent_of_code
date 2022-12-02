@@ -2,7 +2,7 @@ use std::fs;
 
 fn main() {
     let input = fs::read_to_string("./src/input.txt").unwrap();
-    let input = input.split('\n').collect::<Vec<&str>>();
+    let input = input.lines().collect::<Vec<&str>>();
     let mut main_arr: Vec<Vec<&str>> = Vec::new();
     let mut sub_arr: Vec<&str> = Vec::new();
 
